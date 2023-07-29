@@ -1,7 +1,6 @@
 package py.com.daas.adamspayintegration.model;
 
 import java.util.Objects;
-import javax.validation.constraints.*;
 
 import org.springframework.validation.annotation.Validated;
 
