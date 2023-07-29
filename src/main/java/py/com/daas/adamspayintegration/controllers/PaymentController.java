@@ -43,4 +43,10 @@ public class PaymentController {
         return paymentService.deleteDebt(id);
     }
 
+    @PostMapping("/webhook")
+    public void receiveWebhook(@RequestBody DebtsBody debtsBodyRequest) {
+        //process the webhook payload
+        paymentService.handleWebhook(debtsBodyRequest);
+    }
+
 }

@@ -58,4 +58,8 @@ public class PaymentServiceImpl {
         return adamsPayClient.deleteDebt(apiKey, id);
     }
 
+    public void handleWebhook(DebtsBody debtsBody) {
+        System.out.println(debtsBody);
+    }
+
 }
