@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-import py.com.daas.adamspayintegration.model.DebtsBody;
-import py.com.daas.adamspayintegration.model.DebtsResponse;
+import py.com.daas.adamspayintegration.clients.model.DebtsBody;
+import py.com.daas.adamspayintegration.clients.model.DebtsResponse;
 
 @FeignClient(name = "adamspay", url = "https://staging.adamspay.com/api/v1")
 public interface AdamsPayClient {

@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import py.com.daas.adamspayintegration.model.DebtsBody;
-import py.com.daas.adamspayintegration.model.DebtsResponse;
-import py.com.daas.adamspayintegration.services.PaymentServiceImpl;
+import py.com.daas.adamspayintegration.clients.model.DebtsBody;
+import py.com.daas.adamspayintegration.clients.model.DebtsResponse;
+import py.com.daas.adamspayintegration.services.impl.PaymentServiceImpl;
 
 @RestController
 @RequestMapping("/api/payment")
