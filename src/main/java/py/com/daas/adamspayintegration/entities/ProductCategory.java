@@ -20,7 +20,7 @@ public class ProductCategory implements Serializable {
 
     private String categoryName;
 
-    @NaturalId
+    //@NaturalId
     private Integer categoryType;
 
     private Date createTime;

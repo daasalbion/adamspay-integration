@@ -30,7 +30,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@DynamicUpdate
 public class OrderMain implements Serializable {
     private static final long serialVersionUID = -3819883511505235030L;
 

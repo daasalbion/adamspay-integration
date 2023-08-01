@@ -9,7 +9,7 @@
         <th scope="col">Customer phone</th>
         <th scope="col">Shipping Address</th>
         <th scope="col">Total</th>
-        <th scope="col">Order Data</th>
+        <!--<th scope="col">Order Data</th>-->
         <th scope="col">Status</th>
         <th scope="col">Action</th>
     </tr>
@@ -25,7 +25,7 @@
         <td class="align-middle">{{order.buyerPhone}}</td>
         <td class="align-middle">{{order.buyerAddress}}</td>
         <td class="align-middle">{{order.orderAmount | currency}}</td>
-        <td class="align-middle">{{order.createTime | date}}</td>
+        <!--<td class="align-middle">{{order.createTime | date}}</td>-->
         <td class="align-middle">{{OrderStatus[order.orderStatus]}}</td>
         <td class="align-middle">
             <a *ngIf="!(currentUser.role == Role.Customer && currentUser.name == order.buyerEmail)"

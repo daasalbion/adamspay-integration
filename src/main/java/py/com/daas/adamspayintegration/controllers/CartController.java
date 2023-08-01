@@ -28,7 +28,7 @@ import py.com.daas.adamspayintegration.services.ProductService;
 import py.com.daas.adamspayintegration.services.UserService;
 
 @CrossOrigin
-//@RestController
+@RestController
 @RequestMapping("/cart")
 public class CartController {
     @Autowired

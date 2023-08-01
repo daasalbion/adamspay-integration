@@ -1,4 +1,3 @@
-## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -6,13 +5,13 @@ spring:
     username: plutus
     password: plutus
     platform: postgres
-    initialization-mode: always
+    #initialization-mode: always
     continue-on-error: true
   jpa:
     show-sql: false
 #    generate-ddl: false
     hibernate:
-      ddl-auto: create
+     ddl-auto: update
     database: postgresql
     properties:
       hibernate:
@@ -21,17 +20,6 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   #      dialect: org.hibernate.dialect.MySQL5Dialect
 
-#  jackson:
-#    default-property-inclusion: non_null
-#  redis:
-#    host: localhost
-#    port: 6379
-#  freemarker:
-#      cache: false
-
-
-
-
   queries:
     users-query: select email, password, active from users where email=?
     roles-query: select email, role from users where email=?
@@ -39,8 +27,8 @@ server:
   servlet:
     contextPath: /api
 
-jwtSecret: me.zhulin
-jwtExpiration: 86400
+jwtSecret: secret0key0for0encryptionsecret0key0for0encryptionsecret0key0for0encryption
+jwtExpiration: 6000000
 
 adamspay:
   apikey: ap-6e18d9ac69f7bb175ba6a9d9

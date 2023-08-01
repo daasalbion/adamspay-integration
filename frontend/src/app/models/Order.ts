@@ -8,6 +8,6 @@ export class Order {
     orderStatus: string;
     createTime: string;
     updateTime: string;
-    products: [];
+    products: any[];
 
 }

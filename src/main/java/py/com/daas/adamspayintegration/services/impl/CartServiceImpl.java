@@ -19,6 +19,7 @@ import py.com.daas.adamspayintegration.repositories.OrderRepository;
 import py.com.daas.adamspayintegration.repositories.ProductInOrderRepository;
 import py.com.daas.adamspayintegration.repositories.UserRepository;
 import py.com.daas.adamspayintegration.services.CartService;
+import py.com.daas.adamspayintegration.services.PaymentService;
 import py.com.daas.adamspayintegration.services.ProductService;
 import py.com.daas.adamspayintegration.services.UserService;
 
@@ -30,13 +31,14 @@ public class CartServiceImpl implements CartService {
     OrderRepository orderRepository;
     @Autowired
     UserRepository userRepository;
-
     @Autowired
     ProductInOrderRepository productInOrderRepository;
     @Autowired
     CartRepository cartRepository;
     @Autowired
     UserService userService;
+    @Autowired
+    PaymentService paymentService;
 
     @Override
     public Cart getCart(User user) {
@@ -68,11 +70,12 @@ public class CartServiceImpl implements CartService {
     @Override
     @Transactional
     public void delete(String itemId, User user) {
-        if(itemId.equals("") || user == null) {
+        if (itemId.equals("") || user == null) {
             throw new MyException(ResultEnum.ORDER_STATUS_ERROR);
         }
 
-        var op = user.getCart().getProducts().stream().filter(e -> itemId.equals(e.getProductId())).findFirst();
+        var op = user.getCart().getProducts()
+                .stream().filter(e -> itemId.equals(e.getProductId())).findFirst();
         op.ifPresent(productInOrder -> {
             productInOrder.setCart(null);
             productInOrderRepository.deleteById(productInOrder.getId());
@@ -85,6 +88,8 @@ public class CartServiceImpl implements CartService {
         // Creat an order
         OrderMain order = new OrderMain(user);
         orderRepository.save(order);
+
+        paymentService.create(order);
 
         // clear cart's foreign key & set order's foreign key& decrease stock
         user.getCart().getProducts().forEach(productInOrder -> {

@@ -14,7 +14,7 @@ import py.com.daas.adamspayintegration.clients.model.DebtsResponse;
 import py.com.daas.adamspayintegration.services.impl.PaymentServiceImpl;
 
 @RestController
-@RequestMapping("/api/payment")
+@RequestMapping("/payment")
 public class PaymentController {
 
     private final PaymentServiceImpl paymentService;
@@ -44,7 +44,7 @@ public class PaymentController {
     }
 
     @PostMapping("/webhook")
-    public void receiveWebhook(@RequestBody DebtsBody debtsBodyRequest) {
+    public void receiveWebhook(@RequestBody DebtsResponse debtsBodyRequest) {
         //process the webhook payload
         paymentService.handleWebhook(debtsBodyRequest);
     }
