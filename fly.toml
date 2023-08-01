@@ -1,16 +1,28 @@
-# fly.toml app configuration file generated for adamspay-integration on 2023-08-01T10:21:27-04:00
+# fly.toml app configuration file generated for adamspay on 2023-08-01T15:54:15-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "adamspay-integration"
+app = "adamspay"
 primary_region = "eze"
 
 [build]
 
-[http_service]
+[[services]]
+  protocol = "tcp"
   internal_port = 8080
-  auto_stop_machines = true
-  auto_start_machines = true
-  min_machines_running = 1
-  processes = ["app"]
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.tcp_checks]]
+    interval = "10s"
+    timeout = "2s"
