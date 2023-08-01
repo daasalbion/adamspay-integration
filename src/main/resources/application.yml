@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/adamspaydb
-    username: plutus
-    password: plutus
+    url: jdbc:postgresql://adamspaydb:5432/adamspaydb
+    username: myuser
+    password: secret
     platform: postgres
     #initialization-mode: always
     continue-on-error: true
