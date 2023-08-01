@@ -25,7 +25,7 @@ spring:
     roles-query: select email, role from users where email=?
 server:
   servlet:
-    contextPath: /api
+    contextPath: /
 
 jwtSecret: secret0key0for0encryptionsecret0key0for0encryptionsecret0key0for0encryption
 jwtExpiration: 6000000

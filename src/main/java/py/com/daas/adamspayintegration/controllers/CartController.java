@@ -29,7 +29,7 @@ import py.com.daas.adamspayintegration.services.UserService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("/api/cart")
 public class CartController {
     @Autowired
     CartService cartService;

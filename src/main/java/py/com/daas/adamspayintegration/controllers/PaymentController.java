@@ -14,7 +14,7 @@ import py.com.daas.adamspayintegration.clients.model.DebtsResponse;
 import py.com.daas.adamspayintegration.services.impl.PaymentServiceImpl;
 
 @RestController
-@RequestMapping("/payment")
+@RequestMapping("/api/payment")
 public class PaymentController {
 
     private final PaymentServiceImpl paymentService;
