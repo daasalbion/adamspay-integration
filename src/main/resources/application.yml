@@ -1,31 +1,29 @@
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://adamspaydb:5432/adamspaydb
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:mydb
     username: myuser
     password: secret
-    platform: postgres
     #initialization-mode: always
     continue-on-error: true
   jpa:
     show-sql: false
 #    generate-ddl: false
     hibernate:
-     ddl-auto: update
-    database: postgresql
+     ddl-auto: create
     properties:
       hibernate:
         temp:
           use_jdbc_metadata_defaults: false;
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-  #      dialect: org.hibernate.dialect.MySQL5Dialect
-
+    database-platform: org.hibernate.dialect.H2Dialect
   queries:
     users-query: select email, password, active from users where email=?
     roles-query: select email, role from users where email=?
 server:
   servlet:
     contextPath: /
+  address: 127.0.0.1
+  port: 8080
 
 jwtSecret: secret0key0for0encryptionsecret0key0for0encryptionsecret0key0for0encryption
 jwtExpiration: 6000000
